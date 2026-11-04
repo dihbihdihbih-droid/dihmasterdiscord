@@ -59,7 +59,7 @@ public final class NoteNoises {
                 float pitch = RANDOM.nextBoolean()
                         ? (float) Math.pow(2.0, (RANDOM.nextInt(25) - 12) / 12.0) // proper noteblock pitch
                         : 0.5f + RANDOM.nextFloat() * 1.5f;                        // weird in-between pitch
-                client.getSoundManager().play(PositionedSoundInstance.master(sound, pitch, 1.0f));
+                client.getSoundManager().play(PositionedSoundInstance.ui(sound, pitch, 1.0f));
             }
         }
     }
