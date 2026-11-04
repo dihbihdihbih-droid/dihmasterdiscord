@@ -4,8 +4,6 @@ import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.widget.ButtonWidget;
 import net.minecraft.client.gui.widget.TextFieldWidget;
-import net.minecraft.text.OrderedText;
-import net.minecraft.text.Style;
 import net.minecraft.text.Text;
 
 public class ConfigScreen extends Screen {
@@ -40,8 +38,6 @@ public class ConfigScreen extends Screen {
         int row = 38;
 
         token = field(left, y0 + 12, colW, cfg.token, 200);
-        // hide the token on screen
-        token.setRenderTextProvider((s, i) -> OrderedText.styledForwardsVisitedString("*".repeat(s.length()), Style.EMPTY));
         guild = field(left, y0 + 12 + row, colW, cfg.guildId, 32);
         channel = field(left, y0 + 12 + row * 2, colW, cfg.channelId, 32);
 
@@ -106,7 +102,7 @@ public class ConfigScreen extends Screen {
         int grey = 0xFFAAAAAA;
 
         ctx.drawCenteredTextWithShadow(textRenderer, title, width / 2, y0 - 22, white);
-        ctx.drawTextWithShadow(textRenderer, "Bot token", left, y0, grey);
+        ctx.drawTextWithShadow(textRenderer, "Bot token (visible - keep private)", left, y0, grey);
         ctx.drawTextWithShadow(textRenderer, "Discord server ID", left, y0 + row, grey);
         ctx.drawTextWithShadow(textRenderer, "Discord channel ID", left, y0 + row * 2, grey);
         ctx.drawTextWithShadow(textRenderer, "Minecraft server IP", right, y0, grey);
